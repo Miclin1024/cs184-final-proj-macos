@@ -14,18 +14,15 @@
 		1A27474B29F74689003F818B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1A27474A29F74689003F818B /* main.mm */; };
 		1A27477B29F75A0A003F818B /* FontReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A27477929F75A0A003F818B /* FontReader.cpp */; };
 		1AC4109129F841CE00031C39 /* BezierCurves.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AC4108F29F841CE00031C39 /* BezierCurves.cpp */; };
-		1AC4109329F8442600031C39 /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC4109229F8442600031C39 /* libfreetype.6.dylib */; };
-		1AC4109429F8442600031C39 /* libfreetype.6.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 1AC4109229F8442600031C39 /* libfreetype.6.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1AC4108E29F77E6B00031C39 /* Embed Libraries */ = {
+		1AC4109729F844DD00031C39 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1AC4109429F8442600031C39 /* libfreetype.6.dylib in Embed Libraries */,
 			);
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +43,6 @@
 		1A27477A29F75A0A003F818B /* FontReader.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = FontReader.hpp; sourceTree = "<group>"; };
 		1AC4108F29F841CE00031C39 /* BezierCurves.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BezierCurves.cpp; sourceTree = "<group>"; };
 		1AC4109029F841CE00031C39 /* BezierCurves.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BezierCurves.hpp; sourceTree = "<group>"; };
-		1AC4109229F8442600031C39 /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../../opt/homebrew/Cellar/freetype/2.13.0_1/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC4109329F8442600031C39 /* libfreetype.6.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +95,6 @@
 		1A27477C29F76168003F818B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1AC4109229F8442600031C39 /* libfreetype.6.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,7 +109,7 @@
 				1A27473829F74688003F818B /* Sources */,
 				1A27473929F74688003F818B /* Frameworks */,
 				1A27473A29F74688003F818B /* Resources */,
-				1AC4108E29F77E6B00031C39 /* Embed Libraries */,
+				1AC4109729F844DD00031C39 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -327,10 +321,13 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/opt/homebrew/Cellar/freetype/2.13.0_1/lib,
+					/opt/homebrew/lib,
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-L/opt/homebrew/lib",
+					"-lfreetype",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.miclin.TextKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -358,10 +355,13 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/opt/homebrew/Cellar/freetype/2.13.0_1/lib,
+					/opt/homebrew/lib,
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-L/opt/homebrew/lib",
+					"-lfreetype",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.miclin.TextKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
