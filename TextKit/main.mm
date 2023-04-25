@@ -14,6 +14,8 @@ int main(int argc, const char * argv[]) {
     }
 
 
-    FontReader *reader = new FontReader();
+    FontReader::initialize();
+    FontReader::loadTTF("/Library/Fonts/SF-Pro.ttf");
+    FontReader::readCurves('a');
     return NSApplicationMain(argc, argv);
 }

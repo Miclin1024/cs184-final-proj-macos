@@ -14,18 +14,16 @@
 #include FT_IMAGE_H
 
 #include <stdio.h>
+#include "BezierCurves.hpp"
 
-class FontReader {
-public:
-    FontReader();
-    ~FontReader();
+using namespace std;
 
-    FT_Face face;
-    FT_Library library;
+namespace FontReader {
 
     int initialize();
     int loadTTF(const char* path);
-private:
+    vector<ConicBezierCurve> readCurves(const char c);
+
 };
 
 #endif

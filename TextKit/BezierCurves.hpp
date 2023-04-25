@@ -9,5 +9,12 @@
 #define BezierCurves_hpp
 
 #include <stdio.h>
+#include "CGL/vector2D.h"
+
+using namespace CGL;
+
+struct ConicBezierCurve {
+    Vector2D startPoint, endPoint, controlPoint;
+};
 
 #endif /* BezierCurves_hpp */
