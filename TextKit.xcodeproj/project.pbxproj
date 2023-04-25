@@ -12,6 +12,7 @@
 		1A27474629F74689003F818B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A27474529F74689003F818B /* Assets.xcassets */; };
 		1A27474929F74689003F818B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A27474729F74689003F818B /* Main.storyboard */; };
 		1A27474B29F74689003F818B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A27474A29F74689003F818B /* main.m */; };
+		8B4FC64D0FB4A546DF6B698D /* Pods_TextKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADF78524224FBF88E8350726 /* Pods_TextKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,10 @@
 		1A27474829F74689003F818B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A27474A29F74689003F818B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A27474C29F74689003F818B /* TextKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextKit.entitlements; sourceTree = "<group>"; };
+		2D295B39F4FCD16F4F410E7F /* Pods-TextKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextKit.debug.xcconfig"; path = "Target Support Files/Pods-TextKit/Pods-TextKit.debug.xcconfig"; sourceTree = "<group>"; };
+		ADF78524224FBF88E8350726 /* Pods_TextKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D87758FAE2D0143FBCD90CDB /* Pods-TextKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextKit.release.xcconfig"; path = "Target Support Files/Pods-TextKit/Pods-TextKit.release.xcconfig"; sourceTree = "<group>"; };
+		F05303DB29F761EC005107A8 /* MyOpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyOpenGLView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +36,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4FC64D0FB4A546DF6B698D /* Pods_TextKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010A7124B0D467376C7D9C2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADF78524224FBF88E8350726 /* Pods_TextKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1A27473329F74688003F818B = {
 			isa = PBXGroup;
 			children = (
 				1A27473E29F74688003F818B /* TextKit */,
 				1A27473D29F74688003F818B /* Products */,
+				A8BF4C6F01418CAB6C5284FF /* Pods */,
+				010A7124B0D467376C7D9C2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +72,7 @@
 		1A27473E29F74688003F818B /* TextKit */ = {
 			isa = PBXGroup;
 			children = (
+				F05303DB29F761EC005107A8 /* MyOpenGLView.h */,
 				1A27473F29F74688003F818B /* AppDelegate.h */,
 				1A27474029F74688003F818B /* AppDelegate.m */,
 				1A27474229F74688003F818B /* ViewController.h */,
@@ -68,6 +85,15 @@
 			path = TextKit;
 			sourceTree = "<group>";
 		};
+		A8BF4C6F01418CAB6C5284FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D295B39F4FCD16F4F410E7F /* Pods-TextKit.debug.xcconfig */,
+				D87758FAE2D0143FBCD90CDB /* Pods-TextKit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -75,6 +101,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A27474F29F74689003F818B /* Build configuration list for PBXNativeTarget "TextKit" */;
 			buildPhases = (
+				02A3823D335961D66996F4A7 /* [CP] Check Pods Manifest.lock */,
 				1A27473829F74688003F818B /* Sources */,
 				1A27473929F74688003F818B /* Frameworks */,
 				1A27473A29F74688003F818B /* Resources */,
@@ -131,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02A3823D335961D66996F4A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TextKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A27473829F74688003F818B /* Sources */ = {
@@ -268,6 +320,7 @@
 		};
 		1A27475029F74689003F818B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D295B39F4FCD16F4F410E7F /* Pods-TextKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -283,6 +336,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.miclin.TextKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +346,7 @@
 		};
 		1A27475129F74689003F818B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D87758FAE2D0143FBCD90CDB /* Pods-TextKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -307,6 +362,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.miclin.TextKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
