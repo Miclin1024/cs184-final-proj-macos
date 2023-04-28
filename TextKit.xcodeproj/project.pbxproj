@@ -104,14 +104,11 @@
 		1A27473E29F74688003F818B /* TextKit */ = {
 			isa = PBXGroup;
 			children = (
-				1AC410AD29F8706D00031C39 /* assets */,
+				1A5BAC9A29FC443A00745114 /* Views */,
+				1A5BAC9229FC442000745114 /* Controllers */,
+				1AC410AD29F8706D00031C39 /* Assets */,
 				1A27473F29F74688003F818B /* AppDelegate.h */,
 				1A27474029F74688003F818B /* AppDelegate.m */,
-				1A27474229F74688003F818B /* ViewController.h */,
-				1A27474329F74688003F818B /* ViewController.m */,
-				1A27474529F74689003F818B /* Assets.xcassets */,
-				1A27474729F74689003F818B /* Main.storyboard */,
-				1A27474A29F74689003F818B /* main.mm */,
 				1A27474C29F74689003F818B /* TextKit.entitlements */,
 				1A27477929F75A0A003F818B /* FontReader.cpp */,
 				1A27477A29F75A0A003F818B /* FontReader.hpp */,
@@ -137,13 +134,32 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1AC410AD29F8706D00031C39 /* assets */ = {
+		1A5BAC9229FC442000745114 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1A27474729F74689003F818B /* Main.storyboard */,
+				1A27474A29F74689003F818B /* main.mm */,
+				1A27474229F74688003F818B /* ViewController.h */,
+				1A27474329F74688003F818B /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A5BAC9A29FC443A00745114 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1AC410AD29F8706D00031C39 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1A27474529F74689003F818B /* Assets.xcassets */,
 				1AC410B029F8768400031C39 /* Lato-Regular.ttf */,
 				1AC410AE29F8710F00031C39 /* SF-Pro.ttf */,
 			);
-			path = assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
