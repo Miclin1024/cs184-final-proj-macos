@@ -13,6 +13,7 @@
 		1A27474929F74689003F818B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A27474729F74689003F818B /* Main.storyboard */; };
 		1A27474B29F74689003F818B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1A27474A29F74689003F818B /* main.mm */; };
 		1A27477B29F75A0A003F818B /* FontReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A27477929F75A0A003F818B /* FontReader.cpp */; };
+		1A5BAC9D29FC4B2500745114 /* ViewController+TextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5BAC9C29FC4B2500745114 /* ViewController+TextFieldDelegate.m */; };
 		1AC410AF29F8710F00031C39 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410AE29F8710F00031C39 /* SF-Pro.ttf */; };
 		1AC410B129F8768400031C39 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410B029F8768400031C39 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,8 @@
 		1A27474C29F74689003F818B /* TextKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextKit.entitlements; sourceTree = "<group>"; };
 		1A27477929F75A0A003F818B /* FontReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FontReader.cpp; sourceTree = "<group>"; };
 		1A27477A29F75A0A003F818B /* FontReader.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = FontReader.hpp; sourceTree = "<group>"; };
+		1A5BAC9C29FC4B2500745114 /* ViewController+TextFieldDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+TextFieldDelegate.m"; sourceTree = "<group>"; };
+		1A5BAC9E29FC4B3400745114 /* ViewController+TextFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+TextFieldDelegate.h"; sourceTree = "<group>"; };
 		1AC4109029F841CE00031C39 /* BezierCurves.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BezierCurves.hpp; sourceTree = "<group>"; };
 		1AC410AE29F8710F00031C39 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		1AC410B029F8768400031C39 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				1A27474A29F74689003F818B /* main.mm */,
 				1A27474229F74688003F818B /* ViewController.h */,
 				1A27474329F74688003F818B /* ViewController.m */,
+				1A5BAC9E29FC4B3400745114 /* ViewController+TextFieldDelegate.h */,
+				1A5BAC9C29FC4B2500745114 /* ViewController+TextFieldDelegate.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5BAC9D29FC4B2500745114 /* ViewController+TextFieldDelegate.m in Sources */,
 				1A27474429F74688003F818B /* ViewController.m in Sources */,
 				1A27477B29F75A0A003F818B /* FontReader.cpp in Sources */,
 				1A27474B29F74689003F818B /* main.mm in Sources */,
