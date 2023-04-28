@@ -13,7 +13,6 @@ int main(int argc, const char * argv[]) {
         // Setup code that might create autoreleased objects goes here.
     }
 
-
     FontReader::initialize();
     FontReader::loadTTF("/Library/Fonts/SF-Pro.ttf");
     FontReader::readCurves('a');

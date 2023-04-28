@@ -13,39 +13,31 @@
 		1A27474929F74689003F818B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A27474729F74689003F818B /* Main.storyboard */; };
 		1A27474B29F74689003F818B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1A27474A29F74689003F818B /* main.mm */; };
 		1A27477B29F75A0A003F818B /* FontReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A27477929F75A0A003F818B /* FontReader.cpp */; };
-		1AC410A829F8617D00031C39 /* libCGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC410A329F8616600031C39 /* libCGL.a */; };
 		1AC410AF29F8710F00031C39 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410AE29F8710F00031C39 /* SF-Pro.ttf */; };
 		1AC410B129F8768400031C39 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410B029F8768400031C39 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1AC410A229F8616600031C39 /* PBXContainerItemProxy */ = {
+		1A5BAC8B29FC429200745114 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AC4109829F8616600031C39 /* CGL.xcodeproj */;
+			containerPortal = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8D3794BE390E4EA593EEEF66;
 			remoteInfo = CGL;
 		};
-		1AC410A429F8616600031C39 /* PBXContainerItemProxy */ = {
+		1A5BAC8D29FC429200745114 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AC4109829F8616600031C39 /* CGL.xcodeproj */;
+			containerPortal = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3AA35B52EC7B40ECA55EFD0E;
 			remoteInfo = glew;
 		};
-		1AC410A629F8616600031C39 /* PBXContainerItemProxy */ = {
+		1A5BAC8F29FC429200745114 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1AC4109829F8616600031C39 /* CGL.xcodeproj */;
+			containerPortal = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BFD77BBE2BCC4B9B9B35B7A6;
 			remoteInfo = glfw;
-		};
-		1AC410AB29F8642E00031C39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC4109829F8616600031C39 /* CGL.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6C4994A03E03458DB3FC0140;
-			remoteInfo = CGL;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -75,9 +67,9 @@
 		1A27477929F75A0A003F818B /* FontReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FontReader.cpp; sourceTree = "<group>"; };
 		1A27477A29F75A0A003F818B /* FontReader.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = FontReader.hpp; sourceTree = "<group>"; };
 		1AC4109029F841CE00031C39 /* BezierCurves.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BezierCurves.hpp; sourceTree = "<group>"; };
-		1AC4109829F8616600031C39 /* CGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CGL.xcodeproj; path = CGL/CGL.xcodeproj; sourceTree = "<group>"; };
 		1AC410AE29F8710F00031C39 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		1AC410B029F8768400031C39 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		1AC410B229F8EACC00031C39 /* CGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CGL.xcodeproj; path = CGL/CGL.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AC410A829F8617D00031C39 /* libCGL.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +86,7 @@
 		1A27473329F74688003F818B = {
 			isa = PBXGroup;
 			children = (
-				1AC4109829F8616600031C39 /* CGL.xcodeproj */,
+				1AC410B229F8EACC00031C39 /* CGL.xcodeproj */,
 				1A27473E29F74688003F818B /* TextKit */,
 				1A27473D29F74688003F818B /* Products */,
 				1A27477C29F76168003F818B /* Frameworks */,
@@ -136,12 +127,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1AC4109929F8616600031C39 /* Products */ = {
+		1A5BAC8229FC429000745114 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AC410A329F8616600031C39 /* libCGL.a */,
-				1AC410A529F8616600031C39 /* libglew.a */,
-				1AC410A729F8616600031C39 /* libglfw3.a */,
+				1A5BAC8C29FC429200745114 /* libCGL.a */,
+				1A5BAC8E29FC429200745114 /* libglew.a */,
+				1A5BAC9029FC429200745114 /* libglfw3.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,7 +161,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1AC410AC29F8642E00031C39 /* PBXTargetDependency */,
 			);
 			name = TextKit;
 			productName = TextKit;
@@ -204,8 +194,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1AC4109929F8616600031C39 /* Products */;
-					ProjectRef = 1AC4109829F8616600031C39 /* CGL.xcodeproj */;
+					ProductGroup = 1A5BAC8229FC429000745114 /* Products */;
+					ProjectRef = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -216,25 +206,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1AC410A329F8616600031C39 /* libCGL.a */ = {
+		1A5BAC8C29FC429200745114 /* libCGL.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libCGL.a;
-			remoteRef = 1AC410A229F8616600031C39 /* PBXContainerItemProxy */;
+			remoteRef = 1A5BAC8B29FC429200745114 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AC410A529F8616600031C39 /* libglew.a */ = {
+		1A5BAC8E29FC429200745114 /* libglew.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libglew.a;
-			remoteRef = 1AC410A429F8616600031C39 /* PBXContainerItemProxy */;
+			remoteRef = 1A5BAC8D29FC429200745114 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1AC410A729F8616600031C39 /* libglfw3.a */ = {
+		1A5BAC9029FC429200745114 /* libglfw3.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libglfw3.a;
-			remoteRef = 1AC410A629F8616600031C39 /* PBXContainerItemProxy */;
+			remoteRef = 1A5BAC8F29FC429200745114 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -266,14 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1AC410AC29F8642E00031C39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CGL;
-			targetProxy = 1AC410AB29F8642E00031C39 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1A27474729F74689003F818B /* Main.storyboard */ = {

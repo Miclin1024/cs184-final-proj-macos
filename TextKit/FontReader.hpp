@@ -21,9 +21,10 @@ using namespace std;
 namespace FontReader {
 
     int initialize();
-    int loadTTF(const char* path);
-    vector<ConicBezierCurve> readCurves(const char c);
 
+    int loadTTF(const char* path);
+
+    vector<ConicBezierCurve> readCurves(const char c);
 };
 
 #endif
