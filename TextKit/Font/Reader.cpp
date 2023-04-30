@@ -5,13 +5,15 @@
 //  Created by Michael Lin on 4/24/23.
 //
 
-#include "FontReader.hpp"
+#include "Reader.hpp"
 #include "BezierCurves.hpp"
 
 FT_Face face = nullptr;
 FT_Library library = nullptr;
 
-int FontReader::initialize() {
+using namespace TextKit;
+
+int Reader::initialize() {
     int result = FT_Init_FreeType(&library);
     if (result) {
         fprintf(stderr, "Error initializing FreeType library.");
@@ -20,8 +22,8 @@ int FontReader::initialize() {
     return result;
 }
 
-int FontReader::loadTTF(const char* path) {
-    int result = FT_New_Face(library, path, 0, &face);
+int Reader::loadTTF(const string path) {
+    int result = FT_New_Face(library, path.c_str(), 0, &face);
     if (result) {
         fprintf(stderr, "Error loading font file.");
     }
@@ -68,7 +70,7 @@ int conicTo(const FT_Vector* control, const FT_Vector* to, void* user) {
     return 0;
 }
 
-vector<ConicBezierCurve> FontReader::readCurves(const char c) {
+vector<ConicBezierCurve> Reader::readCurves(const char c) {
     FT_ULong charCode = c;
     FT_UInt glyphIndex = FT_Get_Char_Index(face, charCode);
 

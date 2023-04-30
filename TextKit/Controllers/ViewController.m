@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewController ()
 
+@property(nonatomic, readwrite) NSTextField *inputTextField;
+
+@property(nonatomic, readwrite) GLCanvasView *canvas;
+
 @end
 
 @implementation ViewController
@@ -38,10 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     self.inputTextField = tf;
 
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
-    NSOpenGLView *canvas = [[NSOpenGLView alloc] initWithFrame:NSZeroRect];
+    GLCanvasView *canvas = [[GLCanvasView alloc] initWithFrame:NSZeroRect];
     canvas.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:canvas];
 
@@ -58,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
     [canvas.layer setBackgroundColor:NSColor.textBackgroundColor.CGColor];
 
     self.canvas = canvas;
-
-#pragma GCC diagnostic pop
 }
 
 - (void)viewDidLoad {

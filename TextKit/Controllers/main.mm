@@ -6,15 +6,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "FontReader.hpp"
+#import "Reader.hpp"
+#import "Font.hpp"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // Setup code that might create autoreleased objects goes here.
     }
+    TextKit::Reader::initialize();
 
-    FontReader::initialize();
-    FontReader::loadTTF("/Library/Fonts/SF-Pro.ttf");
-    FontReader::readCurves('a');
+    set<char> charSet = {'a', 'b', 'c'};
+    TextKit::Font font = TextKit::Font("/Library/Fonts/SF-Pro.ttf", charSet);
+
+    TextKit::Reader::loadTTF("/Library/Fonts/SF-Pro.ttf");
+    TextKit::Reader::readCurves('a');
     return NSApplicationMain(argc, argv);
 }

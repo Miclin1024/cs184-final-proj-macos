@@ -6,17 +6,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "GLCanvasView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewController : NSViewController
 
-@property(nonatomic) NSTextField *inputTextField;
+@property(nonatomic, readonly) NSTextField *inputTextField;
 
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-@property(nonatomic) NSOpenGLView *canvas;
-#pragma GCC diagnostic pop
+@property(nonatomic, readonly) GLCanvasView *canvas;
 
 @end
 

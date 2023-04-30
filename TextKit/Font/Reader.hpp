@@ -1,12 +1,12 @@
 //
-//  FontReader.hpp
+//  Reader.hpp
 //  TextKit
 //
 //  Created by Michael Lin on 4/24/23.
 //
 
-#ifndef FontReader_hpp
-#define FontReader_hpp
+#ifndef Reader_hpp
+#define Reader_hpp
 
 #include <freetype2/ft2build.h>
 #include FT_FREETYPE_H
@@ -14,17 +14,23 @@
 #include FT_IMAGE_H
 
 #include <stdio.h>
+#include <iostream>
 #include "BezierCurves.hpp"
 
 using namespace std;
 
-namespace FontReader {
+namespace TextKit {
 
-    int initialize();
+namespace Reader {
 
-    int loadTTF(const char* path);
+int initialize();
 
-    vector<ConicBezierCurve> readCurves(const char c);
+int loadTTF(const string path);
+
+vector<ConicBezierCurve> readCurves(const char c);
+
+};
+
 };
 
 #endif
