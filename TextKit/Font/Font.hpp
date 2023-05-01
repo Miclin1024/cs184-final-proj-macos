@@ -13,6 +13,7 @@
 #include <map>
 #include <set>
 #include "BezierCurves.hpp"
+#include <vector>
 
 using namespace std;
 
