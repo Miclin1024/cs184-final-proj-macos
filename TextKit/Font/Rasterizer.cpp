@@ -10,7 +10,8 @@
 using namespace std;
 using namespace TextKit;
 
-//Rasterizer::GLBitmap Rasterizer::rasterize(Font font, Font::RenderContext context) {
-//
-//}
+Rasterizer::GLTextAtlas Rasterizer::rasterize(Font font, Font::RenderContext context) {
+
+    
+}
 

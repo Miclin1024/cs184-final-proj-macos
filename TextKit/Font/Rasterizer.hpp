@@ -21,22 +21,22 @@ namespace TextKit {
 class Rasterizer {
 public:
 
-    struct GLBitmap {
+    struct GLTextAtlas {
 
         struct Frame {
             Vector2D position;
             Vector2D size;
         };
 
-        char * data;
+        char * bitmap;
         size_t width;
         size_t height;
         map<char, Frame> frames;
     };
 
-    map<string, GLBitmap> atlas = {};
+    map<string, GLTextAtlas> atlas = {};
 
-    GLBitmap rasterize(Font font, Font::RenderContext context);
+    GLTextAtlas rasterize(Font font, Font::RenderContext context);
 
 private:
     string keyFromFontInfo(string name, size_t size);
