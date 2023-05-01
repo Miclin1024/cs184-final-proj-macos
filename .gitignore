@@ -68,4 +68,5 @@ CGL/deps/glfw/src/glfw3.pc
 CGL/deps/glfw/src/glfw3Config.cmake
 CGL/deps/glfw/src/glfw3ConfigVersion.cmake
 CGL/deps/glfw/src/glfw_config.h
-CGL/src/cmake_install.cmake 
+CGL/src/cmake_install.cmake
+CGL/build/
