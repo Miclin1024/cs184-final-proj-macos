@@ -21,30 +21,6 @@
 		1AC410B129F8768400031C39 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410B029F8768400031C39 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1A5BAC8B29FC429200745114 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D3794BE390E4EA593EEEF66;
-			remoteInfo = CGL;
-		};
-		1A5BAC8D29FC429200745114 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3AA35B52EC7B40ECA55EFD0E;
-			remoteInfo = glew;
-		};
-		1A5BAC8F29FC429200745114 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BFD77BBE2BCC4B9B9B35B7A6;
-			remoteInfo = glfw;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		1AC4109729F844DD00031C39 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -81,7 +57,6 @@
 		1AC4109029F841CE00031C39 /* BezierCurves.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BezierCurves.hpp; sourceTree = "<group>"; };
 		1AC410AE29F8710F00031C39 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		1AC410B029F8768400031C39 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
-		1AC410B229F8EACC00031C39 /* CGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CGL.xcodeproj; path = CGL/CGL.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +73,6 @@
 		1A27473329F74688003F818B = {
 			isa = PBXGroup;
 			children = (
-				1AC410B229F8EACC00031C39 /* CGL.xcodeproj */,
 				1A27473E29F74688003F818B /* TextKit */,
 				1A27473D29F74688003F818B /* Products */,
 				1A27477C29F76168003F818B /* Frameworks */,
@@ -132,16 +106,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1A5BAC8229FC429000745114 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1A5BAC8C29FC429200745114 /* libCGL.a */,
-				1A5BAC8E29FC429200745114 /* libglew.a */,
-				1A5BAC9029FC429200745114 /* libglfw3.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		1A5BAC9229FC442000745114 /* Controllers */ = {
@@ -236,42 +200,12 @@
 			mainGroup = 1A27473329F74688003F818B;
 			productRefGroup = 1A27473D29F74688003F818B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1A5BAC8229FC429000745114 /* Products */;
-					ProjectRef = 1AC410B229F8EACC00031C39 /* CGL.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1A27473B29F74688003F818B /* TextKit */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1A5BAC8C29FC429200745114 /* libCGL.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCGL.a;
-			remoteRef = 1A5BAC8B29FC429200745114 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1A5BAC8E29FC429200745114 /* libglew.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libglew.a;
-			remoteRef = 1A5BAC8D29FC429200745114 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1A5BAC9029FC429200745114 /* libglfw3.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libglfw3.a;
-			remoteRef = 1A5BAC8F29FC429200745114 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1A27473A29F74688003F818B /* Resources */ = {
