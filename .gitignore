@@ -50,3 +50,22 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# CGL
+CGL/CGL.xcodeproj/
+CGL/CMakeCache.txt
+CGL/CMakeFiles/
+CGL/CMakeScripts/
+CGL/cmake_install.cmake
+CGL/deps/glew/cmake_install.cmake
+CGL/deps/glfw/CMakeFiles/
+CGL/deps/glfw/CMakeScripts/
+CGL/deps/glfw/GLFW.xcodeproj/
+CGL/deps/glfw/cmake_install.cmake
+CGL/deps/glfw/cmake_uninstall.cmake
+CGL/deps/glfw/src/cmake_install.cmake
+CGL/deps/glfw/src/glfw3.pc
+CGL/deps/glfw/src/glfw3Config.cmake
+CGL/deps/glfw/src/glfw3ConfigVersion.cmake
+CGL/deps/glfw/src/glfw_config.h
+CGL/src/cmake_install.cmake 
