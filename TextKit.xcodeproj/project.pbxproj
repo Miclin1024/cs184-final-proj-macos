@@ -21,6 +21,30 @@
 		1AC410B129F8768400031C39 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410B029F8768400031C39 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A9A2C1AA2A00660B00FF84A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 883BDC3C89C048FFB2D4E3FB;
+			remoteInfo = CGL;
+		};
+		A9A2C1AC2A00660B00FF84A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B46FE75C61394259AFE678FD;
+			remoteInfo = glew;
+		};
+		A9A2C1AE2A00660B00FF84A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CB9E52335CA94BE59A99B51C;
+			remoteInfo = glfw;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		1AC4109729F844DD00031C39 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -156,6 +180,16 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		A9A2C1A12A00660B00FF84A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9A2C1AB2A00660B00FF84A7 /* libCGL.a */,
+				A9A2C1AD2A00660B00FF84A7 /* libglew.a */,
+				A9A2C1AF2A00660B00FF84A7 /* libglfw3.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,12 +236,42 @@
 			mainGroup = 1A27473329F74688003F818B;
 			productRefGroup = 1A27473D29F74688003F818B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A9A2C1A12A00660B00FF84A7 /* Products */;
+					ProjectRef = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1A27473B29F74688003F818B /* TextKit */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A9A2C1AB2A00660B00FF84A7 /* libCGL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCGL.a;
+			remoteRef = A9A2C1AA2A00660B00FF84A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A9A2C1AD2A00660B00FF84A7 /* libglew.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libglew.a;
+			remoteRef = A9A2C1AC2A00660B00FF84A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A9A2C1AF2A00660B00FF84A7 /* libglfw3.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libglfw3.a;
+			remoteRef = A9A2C1AE2A00660B00FF84A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1A27473A29F74688003F818B /* Resources */ = {
