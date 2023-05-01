@@ -39,3 +39,20 @@ Font::Font(string path, set<char> characters) : path(path) {
         this->outlines.emplace(c, Reader::readCurves(c));
     }
 }
+
+void Font::summarizeOutline(char glyph) {
+    auto outlines = this->outlines[glyph];
+    printf("Outline summary for glyph %c:\n", glyph);
+    printf("\tSize: %lu\n", outlines.size());
+    double minX = 0.0, minY = numeric_limits<double>::infinity();
+    double maxX = 0.0, maxY = -numeric_limits<double>::infinity();
+
+    for (auto outline : outlines) {
+        minX = min(outline.startPoint.x, minX);
+        minY = min(outline.startPoint.y, minY);
+        maxX = max(outline.startPoint.x, maxX);
+        maxY = max(outline.startPoint.y, maxY);
+    }
+    printf("\tStarting point X:\n\t\t(min) %f,\n\t\t(max) %f\n", minX, maxX);
+    printf("\tStarting point Y:\n\t\t(min) %f,\n\t\t(max) %f\n", minY, maxY);
+}

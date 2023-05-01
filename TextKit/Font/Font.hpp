@@ -34,6 +34,8 @@ public:
     string name;
 
     map<char, vector<ConicBezierCurve>> outlines;
+
+    void summarizeOutline(char glyph);
 };
 
 }

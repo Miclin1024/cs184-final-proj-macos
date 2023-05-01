@@ -15,9 +15,14 @@ int main(int argc, const char * argv[]) {
     }
     TextKit::Reader::initialize();
 
-    set<char> charSet = {'l'};
+    set<char> charSet = {};
+    for (char c = 'A'; c < 'Z'; c++)
+        charSet.insert(c);
+    for (char c = 'a'; c < 'z'; c++)
+        charSet.insert(c);
+
     TextKit::Font font = TextKit::Font("/Library/Fonts/SF-Pro.ttf", charSet);
-    NSLog(@"Outline size: %lu", font.outlines['l'].size());
+    font.summarizeOutline('c');
 
     TextKit::Reader::loadTTF("/Library/Fonts/SF-Pro.ttf");
     TextKit::Reader::readCurves('a');
