@@ -44,10 +44,16 @@ int moveTo(const FT_Vector* to, void* user) {
 }
 
 int lineTo(const FT_Vector* to, void* user) {
-    currentPoint = {
+    ConicBezierCurve curve;
+    curve.startPoint = currentPoint;
+    curve.endPoint = {
         static_cast<double>(to->x),
         static_cast<double>(to->y)
     };
+    curve.controlPoint = .5 * (curve.startPoint + curve.endPoint);
+
+    curves.push_back(curve);
+    currentPoint = curve.endPoint;
 
     return 0;
 }
