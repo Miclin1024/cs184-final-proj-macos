@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "BezierCurves.hpp"
+#include <vector>
 
 using namespace std;
 
