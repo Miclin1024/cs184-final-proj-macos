@@ -8,6 +8,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Reader.hpp"
 #import "Font.hpp"
+#import "Rasterizer.hpp"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -22,9 +23,7 @@ int main(int argc, const char * argv[]) {
         charSet.insert(c);
 
     TextKit::Font font = TextKit::Font("/Library/Fonts/SF-Pro.ttf", charSet);
-    font.summarizeOutline('c');
 
-    TextKit::Reader::loadTTF("/Library/Fonts/SF-Pro.ttf");
-    TextKit::Reader::readCurves('a');
-    return NSApplicationMain(argc, argv);
+    TextKit::Rasterizer rasterizer{};
+    rasterizer.rasterize(font, TextKit::Font::RenderContext{});
 }

@@ -79,6 +79,10 @@
 		1A5BACAE29FDCEC800745114 /* Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
 		1A5BACAF29FDCEC800745114 /* Font.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 		1A5BACB42A004D5A00745114 /* CGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CGL.xcodeproj; path = CGL/CGL.xcodeproj; sourceTree = SOURCE_ROOT; };
+		1A5BACCD2A01AF6B00745114 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
+		1A5BACCE2A01B29100745114 /* stb_sprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_sprintf.h; sourceTree = "<group>"; };
+		1A5BACCF2A01B29100745114 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		1AB9E9B92A01F36800044C97 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		1AC4109029F841CE00031C39 /* BezierCurves.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BezierCurves.hpp; sourceTree = "<group>"; };
 		1AC410AE29F8710F00031C39 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		1AC410B029F8768400031C39 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		1A5BACA329FD85E300745114 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				1A5BACC52A01AF1300745114 /* stb */,
 				1A27477929F75A0A003F818B /* Reader.cpp */,
 				1A27477A29F75A0A003F818B /* Reader.hpp */,
 				1A5BACA829FD871B00745114 /* Rasterizer.cpp */,
@@ -168,6 +173,17 @@
 				1A5BACAF29FDCEC800745114 /* Font.hpp */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		1A5BACC52A01AF1300745114 /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				1AB9E9B92A01F36800044C97 /* stb_truetype.h */,
+				1A5BACCF2A01B29100745114 /* stb_image.h */,
+				1A5BACCE2A01B29100745114 /* stb_sprintf.h */,
+				1A5BACCD2A01AF6B00745114 /* stb_image_write.h */,
+			);
+			path = stb;
 			sourceTree = "<group>";
 		};
 		1AC410AD29F8706D00031C39 /* Assets */ = {
