@@ -19,18 +19,83 @@ Rasterizer::GLTextAtlas Rasterizer::rasterize(Font font, Font::RenderContext con
 
     Rasterizer::GLTextAtlas atlas{};
 
-    for (char c = 'a'; c <= 'z'; c++) {
-        auto bitmap = rasterize(font, context, c);
-        string name = "";
-        name.append(1, c);
-        name.append(".png");
-        bitmap.savePNG(name.c_str());
+    vector<pair<char, Rasterizer::GLTextAtlas::Bitmap>> bitmapComponents = {};
+
+    for (char c : font.characters) {
+        double baseline;
+        auto bitmap = rasterize(font, context, c, &baseline);
+        Rasterizer::GLTextAtlas::Frame frame = {};
+        frame.size = Vector2D(bitmap.width, bitmap.height);
+        frame.baseline = baseline;
+        atlas.frames.emplace(c, frame);
+
+//        string name = "";
+//        name.append(1, c);
+//        name.append(".png");
+//        bitmap.savePNG(name.c_str());
+
+        bitmapComponents.emplace_back(c, bitmap);
     }
-    
+
+    int frameWidth = 0, frameHeight = 0;
+    for (auto elem : bitmapComponents) {
+        auto bitmap = elem.second;
+        frameWidth = max(bitmap.width, frameWidth);
+        frameHeight = max(bitmap.height, frameHeight);
+    }
+    double ratio = (double) frameHeight / frameWidth;
+
+    int n_w = round(sqrt(bitmapComponents.size() * ratio));
+    int n_h = ceil((double) bitmapComponents.size() / n_w);
+
+    atlas.bitmap.width = n_w * frameWidth;
+    atlas.bitmap.height = n_h * frameHeight;
+    atlas.bitmap.data = new uint8_t[atlas.bitmap.width * atlas.bitmap.height * 4];
+    int frameByteSize = frameWidth * frameHeight * 4;
+
+    for (int idx = 0; idx < bitmapComponents.size(); idx++) {
+        int row = idx / n_w, col = idx % n_w;
+
+        char c = bitmapComponents[idx].first;
+        auto bitmap = bitmapComponents[idx].second;
+
+        auto frameIter = atlas.frames.find(c);
+        assert(frameIter != atlas.frames.end());
+        frameIter->second.position = Vector2D(col * frameWidth, row * frameHeight);
+
+        // We will copy the data of each glyph line by line
+        // First, compute the starting index. Each glyph not on the
+        // same row occupies the full frameByteSize. Glyphs on
+        // the same row only uses the first line.
+        int dst = row * n_w * frameByteSize + frameWidth * col * 4;
+
+        // The byte length of each line.
+        int cpylen = bitmap.width * 4;
+
+        // For the remainder of the line, we will set pixels to
+        // a default value. These are the unused regions of the
+        // atlas.
+        int setlen = (frameWidth - bitmap.width) * 4;
+        uint8_t setValue = 0;
+
+        // We skip to the same location on next line when we are done.
+        int stride = atlas.bitmap.width * 4;
+
+        // src will start from the beginning, and moving row by row,
+        // incrementing dst pointer along the way.
+        for (int src = 0;
+             src < bitmap.width * bitmap.height * 4;
+             src += cpylen, dst += stride) {
+            memcpy(&atlas.bitmap.data[dst], &bitmap.data[src], cpylen);
+            memset(&atlas.bitmap.data[dst + cpylen], setValue, setlen);
+        }
+    }
+
+//    atlas.bitmap.savePNG("output.png");
     return atlas;
 }
 
-Rasterizer::GLTextAtlas::Bitmap Rasterizer::rasterize(Font font, Font::RenderContext context, char glyph) const {
+Rasterizer::GLTextAtlas::Bitmap Rasterizer::rasterize(Font font, Font::RenderContext context, char glyph, double *baseline) const {
     vector<BezierCurve *> outlines = font.outline(context, glyph);
 
     double minX = numeric_limits<double>::infinity(), minY = minX;
@@ -47,8 +112,8 @@ Rasterizer::GLTextAtlas::Bitmap Rasterizer::rasterize(Font font, Font::RenderCon
     Rasterizer::GLTextAtlas::Bitmap bitmap{};
     bitmap.width = maxX - minX;
     bitmap.height = maxY - minY;
-    bitmap.baseline = minY;
     bitmap.data = new uint8_t[bitmap.width * bitmap.height * 4];
+    *baseline = minY;
 
     for (int row = 0; row < bitmap.height; row++) {
         vector<double> intersectX{};

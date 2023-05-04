@@ -28,13 +28,13 @@ public:
         struct Frame {
             Vector2D position;
             Vector2D size;
+            double baseline;
         };
 
         struct Bitmap {
             uint8_t * data;
             int width;
             int height;
-            int baseline;
 
             void setPixel(Vector2D position, Vector3D color, uint8_t alpha);
             void savePNG(char const *name);
@@ -48,7 +48,7 @@ public:
 
     GLTextAtlas rasterize(Font font, Font::RenderContext context);
 
-    GLTextAtlas::Bitmap rasterize(Font font, Font::RenderContext context, char glyph) const;
+    GLTextAtlas::Bitmap rasterize(Font font, Font::RenderContext context, char glyph, double *baseline) const;
 
 private:
     string keyFromRenderInfo(Font font, Font::RenderContext context) const;
