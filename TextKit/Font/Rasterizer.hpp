@@ -13,6 +13,8 @@
 #include <map>
 #include "BezierCurves.hpp"
 #include "Font.hpp"
+#include <vector>
+
 
 using namespace std;
 
@@ -26,11 +28,19 @@ public:
         struct Frame {
             Vector2D position;
             Vector2D size;
+            double baseline;
         };
 
-        char * bitmap;
-        size_t width;
-        size_t height;
+        struct Bitmap {
+            uint8_t * data;
+            int width;
+            int height;
+
+            void setPixel(Vector2D position, Vector3D color, uint8_t alpha);
+            void savePNG(char const *name);
+        };
+
+        Bitmap bitmap;
         map<char, Frame> frames;
     };
 
@@ -38,8 +48,10 @@ public:
 
     GLTextAtlas rasterize(Font font, Font::RenderContext context);
 
+    GLTextAtlas::Bitmap rasterize(Font font, Font::RenderContext context, char glyph, double *baseline) const;
+
 private:
-    string keyFromFontInfo(string name, size_t size);
+    string keyFromRenderInfo(Font font, Font::RenderContext context) const;
 };
 
 }

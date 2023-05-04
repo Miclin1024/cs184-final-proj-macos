@@ -26,9 +26,11 @@ namespace Reader {
 
 int initialize();
 
+void setFontSize(size_t size);
+
 int loadTTF(const string path);
 
-vector<ConicBezierCurve> readCurves(const char c);
+vector<BezierCurve *> readCurves(char c);
 
 };
 

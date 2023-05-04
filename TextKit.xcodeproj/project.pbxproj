@@ -22,25 +22,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A9A2C1AA2A00660B00FF84A7 /* PBXContainerItemProxy */ = {
+		F00670A42A0064070018D0D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 883BDC3C89C048FFB2D4E3FB;
+			remoteGlobalIDString = 39918F9221D74A15AC72602A;
 			remoteInfo = CGL;
 		};
-		A9A2C1AC2A00660B00FF84A7 /* PBXContainerItemProxy */ = {
+		F00670A62A0064070018D0D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = B46FE75C61394259AFE678FD;
+			remoteGlobalIDString = 1FBEA9B3703B4C29AA1B41F5;
 			remoteInfo = glew;
 		};
-		A9A2C1AE2A00660B00FF84A7 /* PBXContainerItemProxy */ = {
+		F00670A82A0064070018D0D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = CB9E52335CA94BE59A99B51C;
+			remoteGlobalIDString = A4F4F40407404A519828FDBA;
 			remoteInfo = glfw;
 		};
 /* End PBXContainerItemProxy section */
@@ -79,6 +79,10 @@
 		1A5BACAE29FDCEC800745114 /* Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
 		1A5BACAF29FDCEC800745114 /* Font.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Font.hpp; sourceTree = "<group>"; };
 		1A5BACB42A004D5A00745114 /* CGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CGL.xcodeproj; path = CGL/CGL.xcodeproj; sourceTree = SOURCE_ROOT; };
+		1A5BACCD2A01AF6B00745114 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
+		1A5BACCE2A01B29100745114 /* stb_sprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_sprintf.h; sourceTree = "<group>"; };
+		1A5BACCF2A01B29100745114 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		1AB9E9B92A01F36800044C97 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		1AC4109029F841CE00031C39 /* BezierCurves.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BezierCurves.hpp; sourceTree = "<group>"; };
 		1AC410AE29F8710F00031C39 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		1AC410B029F8768400031C39 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		1A5BACA329FD85E300745114 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				1A5BACC52A01AF1300745114 /* stb */,
 				1A27477929F75A0A003F818B /* Reader.cpp */,
 				1A27477A29F75A0A003F818B /* Reader.hpp */,
 				1A5BACA829FD871B00745114 /* Rasterizer.cpp */,
@@ -168,6 +173,17 @@
 				1A5BACAF29FDCEC800745114 /* Font.hpp */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		1A5BACC52A01AF1300745114 /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				1AB9E9B92A01F36800044C97 /* stb_truetype.h */,
+				1A5BACCF2A01B29100745114 /* stb_image.h */,
+				1A5BACCE2A01B29100745114 /* stb_sprintf.h */,
+				1A5BACCD2A01AF6B00745114 /* stb_image_write.h */,
+			);
+			path = stb;
 			sourceTree = "<group>";
 		};
 		1AC410AD29F8706D00031C39 /* Assets */ = {
@@ -180,12 +196,12 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		A9A2C1A12A00660B00FF84A7 /* Products */ = {
+		F006709B2A0064070018D0D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9A2C1AB2A00660B00FF84A7 /* libCGL.a */,
-				A9A2C1AD2A00660B00FF84A7 /* libglew.a */,
-				A9A2C1AF2A00660B00FF84A7 /* libglfw3.a */,
+				F00670A52A0064070018D0D6 /* libCGL.a */,
+				F00670A72A0064070018D0D6 /* libglew.a */,
+				F00670A92A0064070018D0D6 /* libglfw3.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,7 +254,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A9A2C1A12A00660B00FF84A7 /* Products */;
+					ProductGroup = F006709B2A0064070018D0D6 /* Products */;
 					ProjectRef = 1A5BACB42A004D5A00745114 /* CGL.xcodeproj */;
 				},
 			);
@@ -250,25 +266,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A9A2C1AB2A00660B00FF84A7 /* libCGL.a */ = {
+		F00670A52A0064070018D0D6 /* libCGL.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libCGL.a;
-			remoteRef = A9A2C1AA2A00660B00FF84A7 /* PBXContainerItemProxy */;
+			remoteRef = F00670A42A0064070018D0D6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A9A2C1AD2A00660B00FF84A7 /* libglew.a */ = {
+		F00670A72A0064070018D0D6 /* libglew.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libglew.a;
-			remoteRef = A9A2C1AC2A00660B00FF84A7 /* PBXContainerItemProxy */;
+			remoteRef = F00670A62A0064070018D0D6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A9A2C1AF2A00660B00FF84A7 /* libglfw3.a */ = {
+		F00670A92A0064070018D0D6 /* libglfw3.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libglfw3.a;
-			remoteRef = A9A2C1AE2A00660B00FF84A7 /* PBXContainerItemProxy */;
+			remoteRef = F00670A82A0064070018D0D6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

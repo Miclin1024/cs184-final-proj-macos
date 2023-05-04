@@ -27,31 +27,31 @@ vector<string> split(string str, char separator) {
     return strings;
 }
 
-Font::Font(string path, set<char> characters) : path(path) {
-    Reader::loadTTF(path.c_str());
-
+Font::Font(string path, set<char> characters) : path(path),  characters(characters) {
     vector<string> comps = split(path, '/');
     string filename = comps.back();
     comps = split(filename, '.');
-    this->name = comps.front();
-
-    for (char c : characters) {
-        this->outlines.emplace(c, Reader::readCurves(c));
-    }
+    name = comps.front();
 }
 
-void Font::summarizeOutline(char glyph) {
-    auto outlines = this->outlines[glyph];
+vector<BezierCurve *> Font::outline(RenderContext context, char glyph) const {
+    Reader::loadTTF(path);
+    Reader::setFontSize(context.size);
+    return Reader::readCurves(glyph);
+}
+
+void Font::summarizeOutline(char glyph) const {
+    auto outlines = outline(RenderContext(), glyph);
     printf("Outline summary for glyph %c:\n", glyph);
     printf("\tSize: %lu\n", outlines.size());
     double minX = 0.0, minY = numeric_limits<double>::infinity();
     double maxX = 0.0, maxY = -numeric_limits<double>::infinity();
 
     for (auto outline : outlines) {
-        minX = min(outline.startPoint.x, minX);
-        minY = min(outline.startPoint.y, minY);
-        maxX = max(outline.startPoint.x, maxX);
-        maxY = max(outline.startPoint.y, maxY);
+        minX = min(outline->startPoint.x, minX);
+        minY = min(outline->startPoint.y, minY);
+        maxX = max(outline->startPoint.x, maxX);
+        maxY = max(outline->startPoint.y, maxY);
     }
     printf("\tStarting point X:\n\t\t(min) %f,\n\t\t(max) %f\n", minX, maxX);
     printf("\tStarting point Y:\n\t\t(min) %f,\n\t\t(max) %f\n", minY, maxY);

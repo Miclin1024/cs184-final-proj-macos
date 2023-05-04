@@ -22,17 +22,32 @@ int Reader::initialize() {
     return result;
 }
 
+size_t fontSize = 24;
+void Reader::setFontSize(size_t size) {
+    if (fontSize == size)
+        return;
+    
+    fontSize = size;
+    FT_Set_Char_Size(face, fontSize * 64, 0, 72, 72);
+}
+
+string currentPath = "";
 int Reader::loadTTF(const string path) {
+    if (path == currentPath)
+        return 0;
+
+    currentPath = path;
     int result = FT_New_Face(library, path.c_str(), 0, &face);
     if (result) {
         fprintf(stderr, "Error loading font file.");
     }
+    FT_Set_Char_Size(face, fontSize * 64, 0, 72, 72);
 
     return result;
 }
 
 Vector2D currentPoint;
-vector<ConicBezierCurve> curves;
+vector<BezierCurve *> curves;
 
 int moveTo(const FT_Vector* to, void* user) {
     currentPoint = {
@@ -44,39 +59,38 @@ int moveTo(const FT_Vector* to, void* user) {
 }
 
 int lineTo(const FT_Vector* to, void* user) {
-    ConicBezierCurve curve;
-    curve.startPoint = currentPoint;
-    curve.endPoint = {
+    LinearBezierCurve *curve = new LinearBezierCurve();
+    curve->startPoint = currentPoint;
+    curve->endPoint = {
         static_cast<double>(to->x),
         static_cast<double>(to->y)
     };
-    curve.controlPoint = .5 * (curve.startPoint + curve.endPoint);
 
     curves.push_back(curve);
-    currentPoint = curve.endPoint;
+    currentPoint = curve->endPoint;
 
     return 0;
 }
 
 int conicTo(const FT_Vector* control, const FT_Vector* to, void* user) {
-    ConicBezierCurve curve;
-    curve.startPoint = currentPoint;
-    curve.controlPoint = {
+    QuadBezierCurve *curve = new QuadBezierCurve();
+    curve->startPoint = currentPoint;
+    curve->controlPoint = {
         static_cast<double>(control->x),
         static_cast<double>(control->y)
     };
-    curve.endPoint = {
+    curve->endPoint = {
         static_cast<double>(to->x),
         static_cast<double>(to->y)
     };
 
     curves.push_back(curve);
-    currentPoint = curve.endPoint;
+    currentPoint = curve->endPoint;
 
     return 0;
 }
 
-vector<ConicBezierCurve> Reader::readCurves(const char c) {
+vector<BezierCurve *> Reader::readCurves(char c) {
     FT_ULong charCode = c;
     FT_UInt glyphIndex = FT_Get_Char_Index(face, charCode);
 
