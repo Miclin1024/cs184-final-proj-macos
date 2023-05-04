@@ -26,4 +26,6 @@ int main(int argc, const char * argv[]) {
 
     TextKit::Rasterizer rasterizer{};
     rasterizer.rasterize(font, TextKit::Font::RenderContext{});
+
+    NSApplicationMain(argc, argv);
 }
