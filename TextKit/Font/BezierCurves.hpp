@@ -10,6 +10,8 @@
 
 #include <stdio.h>
 #include "CGL/vector2D.h"
+#include <vector>
+#include <array>
 
 using namespace CGL;
 
