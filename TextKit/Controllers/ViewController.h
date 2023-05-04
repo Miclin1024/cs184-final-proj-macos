@@ -16,6 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, readonly) GLCanvasView *canvas;
 
+@property(nonatomic) NSColor* color;
+
+@property(nonatomic) NSTextField *fontSizeField;
+
+@property(nonatomic) NSPopUpButton *fontSel;
+
 @end
 
 NS_ASSUME_NONNULL_END
