@@ -74,7 +74,7 @@
 		1A5BAC9C29FC4B2500745114 /* ViewController+TextFieldDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+TextFieldDelegate.m"; sourceTree = "<group>"; };
 		1A5BAC9E29FC4B3400745114 /* ViewController+TextFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+TextFieldDelegate.h"; sourceTree = "<group>"; };
 		1A5BACA029FC56D100745114 /* GLCanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLCanvasView.h; sourceTree = "<group>"; };
-		1A5BACA129FC56EB00745114 /* GLCanvasView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLCanvasView.m; sourceTree = "<group>"; };
+		1A5BACA129FC56EB00745114 /* GLCanvasView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp.preprocessed; path = GLCanvasView.m; sourceTree = "<group>"; };
 		1A5BACA829FD871B00745114 /* Rasterizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rasterizer.cpp; sourceTree = "<group>"; };
 		1A5BACA929FD871B00745114 /* Rasterizer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rasterizer.hpp; sourceTree = "<group>"; };
 		1A5BACAE29FDCEC800745114 /* Font.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
