@@ -15,8 +15,15 @@
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 @interface GLCanvasView : NSOpenGLView
 {
-    
+    @public
+    char charToRender;
+    float r;
+    float g;
+    float b;
+    int index;
+    int fontSize;
 }
+- (void)setCharToRender:(char)newCharToRender;
 
 - (void) drawRect:(NSRect)bounds;
 

@@ -20,11 +20,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation ViewController
 
+GLCanvasView *canvas;
+NSColor *color;
+NSTextField *tf;
+NSPopUpButton *fontSel;
+NSTextField *fontSizeField;
+
+
+- (IBAction)renderUsingAppKit:(id)sender {
+    NSString *stringValue = tf.stringValue;
+    const char *cString = [stringValue UTF8String];
+    canvas->charToRender = cString[0];
+    canvas->r = color.redComponent;
+    canvas->g = color.greenComponent;
+    canvas->b = color.blueComponent;
+    [fontSel selectItemAtIndex:1];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSNumber *sizeFormat = [formatter numberFromString:fontSizeField.stringValue];
+    int size;
+    if (sizeFormat) {
+        // the string can be converted to an integer
+        size = [sizeFormat intValue];
+    } else {
+        size = 18;
+    }
+    canvas->fontSize = size;
+    [canvas setNeedsDisplay:true];
+}
+
+- (void)popUpButtonAction:(id)sender {
+    NSString *selectedTitle = [sender titleOfSelectedItem];
+    NSInteger selectedIndex = [fontSel indexOfSelectedItem];
+    canvas->index = (int)selectedIndex - 1;
+    [fontSel setTitle: selectedTitle];
+}
+
 - (void)configureViews {
     
+    
     // Create a canvas view
-    GLCanvasView *canvas = [[GLCanvasView alloc] initWithFrame:NSZeroRect];
+    canvas = [[GLCanvasView alloc] initWithFrame:NSZeroRect];
     canvas.translatesAutoresizingMaskIntoConstraints = NO;
+    color = [NSColor whiteColor];
+    NSColor *curColor = [NSColor whiteColor];
+    color = [curColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
     [self.view addSubview:canvas];
     
     [NSLayoutConstraint activateConstraints:@[
@@ -49,10 +88,11 @@ NS_ASSUME_NONNULL_BEGIN
     [self.view addSubview:containerBox];
     
     // Font selector dropdown
-    NSPopUpButton *fontSel = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 200, 25) pullsDown:YES];
-    [fontSel addItemsWithTitles:@[@"SF Pro", @"Helvetica", @"Times New Roman", @"Inter", @"Comic Sans"]];
+    fontSel = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 200, 25) pullsDown:YES];
+    [fontSel addItemsWithTitles:@[@"Select Font", @"SF Pro", @"Helvetica", @"Times New Roman", @"Inter", @"Comic Sans"]];
     [fontSel setTarget:self];
-    [fontSel setAction:@selector(comboBoxSelectionDidChange:)];
+    [fontSel setAction:@selector(popUpButtonAction:)];
+    
     [containerBox.contentView addSubview:fontSel];
     
     // Colour picker for font color
@@ -64,23 +104,23 @@ NS_ASSUME_NONNULL_BEGIN
     [colorWell setAction:@selector(showColorPanel:)];
     
     // Font size text input
-    NSTextField *fontSizeField = [[NSTextField alloc] initWithFrame:NSZeroRect];
+    fontSizeField = [[NSTextField alloc] initWithFrame:NSZeroRect];
     //[containerBox.contentView addSubview:fontSizeField];
     fontSizeField.translatesAutoresizingMaskIntoConstraints = NO;
-    fontSizeField.placeholderString = @"12px";
-    fontSizeField.stringValue = @"";
+    fontSizeField.placeholderString = @"180";
+    fontSizeField.stringValue = @"180";
     fontSizeField.alignment = NSTextAlignmentLeft;
     fontSizeField.controlSize = NSControlSizeLarge;
     fontSizeField.bezelStyle = NSTextFieldRoundedBezel;
     fontSizeField.font = [NSFont systemFontOfSize:[NSFont systemFontSizeForControlSize:NSControlSizeLarge]];
     [containerBox.contentView addSubview:fontSizeField];
     
-    // Font weight
-    NSPopUpButton *weightSel = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(355, 0, 100, 25) pullsDown:YES];
-    [weightSel addItemsWithTitles:@[@"Regular", @"Medium", @"Bold", @"Extra Bold"]];
-    [weightSel setTarget:self];
-    [weightSel setAction:@selector(comboBoxSelectionDidChange:)];
-    [containerBox.contentView addSubview:weightSel];
+//    // Font weight
+//    NSPopUpButton *weightSel = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(355, 0, 100, 25) pullsDown:YES];
+//    [weightSel addItemsWithTitles:@[@"Regular", @"Medium", @"Bold", @"Extra Bold"]];
+//    [weightSel setTarget:self];
+//    [weightSel setAction:@selector(comboBoxSelectionDidChange:)];
+//    [containerBox.contentView addSubview:weightSel];
     
     //    // Create an NSOpenPanel to choose files
     //    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -115,13 +155,13 @@ NS_ASSUME_NONNULL_BEGIN
         [fontSizeField.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
         [fontSizeField.widthAnchor constraintEqualToConstant: 60],
         
-        [weightSel.trailingAnchor constraintEqualToAnchor:containerBox.contentView.trailingAnchor constant:-10],
-        [weightSel.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
+//        [weightSel.trailingAnchor constraintEqualToAnchor:containerBox.contentView.trailingAnchor constant:-10],
+//        [weightSel.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
     ]];
     
     
     // Create a text field
-        NSTextField *tf = [[NSTextField alloc] initWithFrame:NSZeroRect];
+        tf = [[NSTextField alloc] initWithFrame:NSZeroRect];
         tf.translatesAutoresizingMaskIntoConstraints = NO;
         tf.placeholderString = @"Text to Render";
         tf.stringValue = @"";
@@ -167,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)updateColor:(id)sender {
-    NSColor *color = [sender color];
+    color = [sender color];
     [self.canvas.layer setBackgroundColor:color.CGColor];
     
 }
