@@ -21,86 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation ViewController
 
 - (void)configureViews {
-    // Create a text field
-    NSTextField *tf = [[NSTextField alloc] initWithFrame:NSZeroRect];
-    tf.translatesAutoresizingMaskIntoConstraints = NO;
-    tf.placeholderString = @"Text to Render";
-    tf.stringValue = @"";
-    tf.alignment = NSTextAlignmentLeft;
-    tf.controlSize = NSControlSizeLarge;
-    tf.bezelStyle = NSTextFieldRoundedBezel;
-    tf.font = [NSFont systemFontOfSize:[NSFont systemFontSizeForControlSize:NSControlSizeLarge]];
-    
-    [self.view addSubview:tf];
-    tf.delegate = self;
-    
-    [NSLayoutConstraint activateConstraints:@[
-        [tf.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10],
-        [tf.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-10],
-        [tf.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-10],
-        [tf.widthAnchor constraintGreaterThanOrEqualToConstant:500],
-    ]];
-    
-    self.inputTextField = tf;
-    
-    // Create a container box
-    NSBox *containerBox = [[NSBox alloc] initWithFrame:NSZeroRect];
-    containerBox.translatesAutoresizingMaskIntoConstraints = NO;
-    containerBox.boxType = NSBoxCustom;
-    containerBox.borderColor = [NSColor lightGrayColor];
-    containerBox.borderWidth = 0;
-    [self.view addSubview:containerBox];
-    
-    // Create a combo button dropdown
-    NSPopUpButton *popUpButton = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 150, 25) pullsDown:YES];
-    [popUpButton addItemsWithTitles:@[@"Bold", @"Medium", @"Regular", @"Light"]];
-    [popUpButton setTarget:self];
-    [popUpButton setAction:@selector(comboBoxSelectionDidChange:)];
-    [containerBox.contentView addSubview:popUpButton];
-    
-    // Create a color well
-       NSColorWell *colorWell = [[NSColorWell alloc] initWithFrame:NSZeroRect];
-       colorWell.translatesAutoresizingMaskIntoConstraints = NO;
-       [self.view addSubview:colorWell];
-
-       // Set the target and action for the color well to open the color panel
-       [colorWell setTarget:self];
-       [colorWell setAction:@selector(showColorPanel:)];
-    
-    // Create a font size text field
-        NSTextField *fontSizeField = [[NSTextField alloc] initWithFrame:NSZeroRect];
-        //[containerBox.contentView addSubview:fontSizeField];
-        fontSizeField.translatesAutoresizingMaskIntoConstraints = NO;
-        fontSizeField.placeholderString = @"12px";
-        fontSizeField.stringValue = @"";
-        fontSizeField.alignment = NSTextAlignmentLeft;
-        fontSizeField.controlSize = NSControlSizeLarge;
-        fontSizeField.bezelStyle = NSTextFieldRoundedBezel;
-        fontSizeField.font = [NSFont systemFontOfSize:[NSFont systemFontSizeForControlSize:NSControlSizeLarge]];
-        [self.view addSubview:fontSizeField];
-
-
-
-        
-    [NSLayoutConstraint activateConstraints:@[
-        [containerBox.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:5],
-        [containerBox.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:0],
-        [containerBox.bottomAnchor constraintEqualToAnchor:tf.topAnchor constant:-5],
-        [popUpButton.leadingAnchor constraintEqualToAnchor:containerBox.contentView.leadingAnchor constant:10],
-        [popUpButton.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
-        // [colorWell.trailingAnchor constraintEqualToAnchor:containerBox.contentView.trailingAnchor constant:-10],
-        [colorWell.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
-        [popUpButton.trailingAnchor constraintEqualToAnchor:colorWell.leadingAnchor constant:-10],
-        [fontSizeField.trailingAnchor constraintEqualToAnchor:containerBox.contentView.trailingAnchor constant:-10],
-        [fontSizeField.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
-        [fontSizeField.widthAnchor constraintEqualToConstant:50],
-        
-        //[fileUploadButton.trailingAnchor constraintEqualToAnchor:fontSizeField.trailingAnchor constant:-10],
-        //[fileUploadButton.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
-    ]];
-    
-    //self.containerBox = containerBox;
-    
     
     // Create a canvas view
     GLCanvasView *canvas = [[GLCanvasView alloc] initWithFrame:NSZeroRect];
@@ -111,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
         [canvas.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
         [canvas.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20],
         [canvas.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20],
-        [canvas.bottomAnchor constraintEqualToAnchor:containerBox.topAnchor constant:-10],
+        //[canvas.bottomAnchor constraintEqualToAnchor:containerBox.topAnchor constant:-10],
         [canvas.heightAnchor constraintGreaterThanOrEqualToConstant:400],
     ]];
     
@@ -120,7 +40,125 @@ NS_ASSUME_NONNULL_BEGIN
     [canvas.layer setBackgroundColor:NSColor.textBackgroundColor.CGColor];
     
     self.canvas = canvas;
+    
+    // Container box for font editing
+    NSBox *containerBox = [[NSBox alloc] initWithFrame:NSZeroRect];
+    containerBox.translatesAutoresizingMaskIntoConstraints = NO;
+    containerBox.boxType = NSBoxCustom;
+    containerBox.borderWidth = 0;
+    [self.view addSubview:containerBox];
+    
+    // Font selector dropdown
+    NSPopUpButton *fontSel = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 200, 25) pullsDown:YES];
+    [fontSel addItemsWithTitles:@[@"SF Pro", @"Helvetica", @"Times New Roman", @"Inter", @"Comic Sans"]];
+    [fontSel setTarget:self];
+    [fontSel setAction:@selector(comboBoxSelectionDidChange:)];
+    [containerBox.contentView addSubview:fontSel];
+    
+    // Colour picker for font color
+    NSColorWell *colorWell = [[NSColorWell alloc] initWithFrame:NSZeroRect];
+    colorWell.translatesAutoresizingMaskIntoConstraints = NO;
+    [containerBox.contentView addSubview:colorWell];
+    
+    [colorWell setTarget:self];
+    [colorWell setAction:@selector(showColorPanel:)];
+    
+    // Font size text input
+    NSTextField *fontSizeField = [[NSTextField alloc] initWithFrame:NSZeroRect];
+    //[containerBox.contentView addSubview:fontSizeField];
+    fontSizeField.translatesAutoresizingMaskIntoConstraints = NO;
+    fontSizeField.placeholderString = @"12px";
+    fontSizeField.stringValue = @"";
+    fontSizeField.alignment = NSTextAlignmentLeft;
+    fontSizeField.controlSize = NSControlSizeLarge;
+    fontSizeField.bezelStyle = NSTextFieldRoundedBezel;
+    fontSizeField.font = [NSFont systemFontOfSize:[NSFont systemFontSizeForControlSize:NSControlSizeLarge]];
+    [containerBox.contentView addSubview:fontSizeField];
+    
+    // Font weight
+    NSPopUpButton *weightSel = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(355, 0, 100, 25) pullsDown:YES];
+    [weightSel addItemsWithTitles:@[@"Regular", @"Medium", @"Bold", @"Extra Bold"]];
+    [weightSel setTarget:self];
+    [weightSel setAction:@selector(comboBoxSelectionDidChange:)];
+    [containerBox.contentView addSubview:weightSel];
+    
+    //    // Create an NSOpenPanel to choose files
+    //    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    //    [openPanel setCanChooseFiles:YES];
+    //    [openPanel setCanChooseDirectories:NO];
+    //    [openPanel setAllowsMultipleSelection:YES];
+    //    [openPanel setAllowedFileTypes:@[@"ttf"]];
+    //
+    //    if ([openPanel runModal] == NSModalResponseOK) {
+    //        for (NSURL *fileURL in [openPanel URLs]) {
+    //            NSString *fileName = [fileURL lastPathComponent];
+    //            NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:fileName action:nil keyEquivalent:@""];
+    //            [menuItem setRepresentedObject:fileURL];
+    //            [fileDropdown.menu addItem:menuItem];
+    //        }
+    //    }
+    // [self.view addSubview:fileDropdown];
+    
+    [NSLayoutConstraint activateConstraints:@[
+        [containerBox.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:5],
+        [containerBox.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:0],
+        [containerBox.topAnchor constraintEqualToAnchor:canvas.bottomAnchor constant:10],
+        
+        [fontSel.leadingAnchor constraintEqualToAnchor:containerBox.contentView.leadingAnchor constant:10],
+        [fontSel.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
+        [fontSel.trailingAnchor constraintEqualToAnchor:colorWell.leadingAnchor constant:-10],
+        
+        [colorWell.trailingAnchor constraintEqualToAnchor:fontSizeField.leadingAnchor constant:-10],
+        [colorWell.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
+        [colorWell.widthAnchor constraintEqualToConstant: 70],
+        
+        [fontSizeField.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
+        [fontSizeField.widthAnchor constraintEqualToConstant: 60],
+        
+        [weightSel.trailingAnchor constraintEqualToAnchor:containerBox.contentView.trailingAnchor constant:-10],
+        [weightSel.centerYAnchor constraintEqualToAnchor:containerBox.contentView.centerYAnchor],
+    ]];
+    
+    
+    // Create a text field
+        NSTextField *tf = [[NSTextField alloc] initWithFrame:NSZeroRect];
+        tf.translatesAutoresizingMaskIntoConstraints = NO;
+        tf.placeholderString = @"Text to Render";
+        tf.stringValue = @"";
+        tf.alignment = NSTextAlignmentLeft;
+        tf.controlSize = NSControlSizeLarge;
+        tf.bezelStyle = NSTextFieldRoundedBezel;
+        tf.font = [NSFont systemFontOfSize:[NSFont systemFontSizeForControlSize:NSControlSizeLarge]];
+        [self.view addSubview:tf];
+        tf.delegate = self;
+       
+       [NSLayoutConstraint activateConstraints:@[
+           [tf.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10],
+           //[tf.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-10],
+           [tf.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-10],
+           [tf.topAnchor constraintEqualToAnchor:containerBox.bottomAnchor constant:8],
+           [tf.widthAnchor constraintGreaterThanOrEqualToConstant:380],
+       ]];
+    
+    
+        self.inputTextField = tf;
+    
+        NSButton *renderButton = [[NSButton alloc] initWithFrame:NSMakeRect(390, 0, 80, 50)];
+        [renderButton setTitle:@"Render"];
+        [renderButton setButtonType:NSButtonTypeMomentaryPushIn];
+        [renderButton setBezelStyle:NSBezelStyleRounded];
+        [renderButton setTarget:self];
+        [renderButton setAction:@selector(renderUsingAppKit:)];
+        [self.view addSubview:renderButton];
+
+        [NSLayoutConstraint activateConstraints:@[
+            // tf.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:10],
+            //[renderButton.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-10],
+            [renderButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-10],
+            //[renderButton.widthAnchor constraintEqualToAnchor:constant:60]
+        ]];
 }
+
 
 - (void)showColorPanel:(id)sender {
     [[NSColorPanel sharedColorPanel] setTarget:self];
