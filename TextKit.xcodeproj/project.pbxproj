@@ -19,6 +19,7 @@
 		1A5BACB029FDCEC800745114 /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A5BACAE29FDCEC800745114 /* Font.cpp */; };
 		1AC410AF29F8710F00031C39 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410AE29F8710F00031C39 /* SF-Pro.ttf */; };
 		1AC410B129F8768400031C39 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AC410B029F8768400031C39 /* Lato-Regular.ttf */; };
+		F01071E12A018B140053196E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F01071D92A018B140053196E /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		1AC4109029F841CE00031C39 /* BezierCurves.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BezierCurves.hpp; sourceTree = "<group>"; };
 		1AC410AE29F8710F00031C39 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		1AC410B029F8768400031C39 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		F01071D92A018B140053196E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01071E12A018B140053196E /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +137,7 @@
 		1A27477C29F76168003F818B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F01071D92A018B140053196E /* OpenGL.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
